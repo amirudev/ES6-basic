@@ -84,15 +84,24 @@ skill3_slider.addEventListener('mousemove', () => {
     skills3_list.innerHTML += qualifiedskills3;
 });
 
-
-
-
 window.onload = () => {
-        skills3_points.textContent = points;
-    }
-    // skills3_list.innerHTML += qualified; // .map
-
-// PROBLEM "I CANT CHANGE THE DOM OF SKILLS3POINTS  15.37 22 SEP 2020"
+    skills3_points.textContent = points;
+};
+// skills3_list.innerHTML += qualified; // .map
 
 
 // Classes
+class Siswa {
+    constructor(name, classes, id) {
+        this.name = name;
+        this.classes = classes;
+        this.id = id;
+    }
+
+    attend() {
+        console.log(`Hello, ${this.name} !. You're on ${this.classes} class. Your ID is ${this.id}`)
+    }
+}
+
+let wahyuamirulloh = new Siswa('Wahyu Amirulloh', '9B', '89728370');
+wahyuamirulloh.attend();
