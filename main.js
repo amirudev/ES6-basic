@@ -26,9 +26,9 @@ skills2_list.innerHTML += skill2_parent;
 // Filter Data
 const skills3_list = document.getElementById('skill3list'); // DOM
 const skills3_points = document.getElementById('points') // DOM
+const skill3_slider = document.getElementById('skill3slider'); // DOM
+const s3_number = document.getElementById('s3snumber'); // DOM
 
-console.log(document)
-console.log(skills3_points)
 
 skillData = [{
         name: 'Javascript',
@@ -60,25 +60,33 @@ skillData = [{
     },
 ]; // Skills Data
 // var qualified = ''; // Activate if you using .map
-var points = 75; // Change minimum qualified points here
 
-var filteredSkills = skillData.filter((skill) => { // You can choose between .filter and .map
-    if (skill.points >= points) {
-        return skill.name; // .filter
-        // qualified += skillname // .map
+skill3_slider.addEventListener('mousemove', () => {
+    var qualifiedskills3 = ' ';
+    var points = skill3_slider.value;
+    s3_number.innerHTML = points;
+    console.log(points);
+
+    var filteredSkills = skillData.filter((skill) => { // You can choose between .filter and .map
+        if (skill.points >= points) {
+            return skill.name; // .filter
+            // qualified += skillname // .map
+        }
+    });
+    console.log(filteredSkills); // .filter
+    var qualifiedskills3 = '<ul>';
+
+    for (let i = 0; i < filteredSkills.length; i++) {
+        qualifiedskills3 += `<li>${filteredSkills[i].name} ( Points : ${filteredSkills[i].points} )</li>`
     }
+    qualifiedskills3 += '</ul>';
+    skills3_list.innerHTML += qualifiedskills3;
 });
 
-console.log(filteredSkills); // .filter
-var qualifiedskills3 = '<ul>';
 
-for (let i = 0; i < filteredSkills.length; i++) {
-    qualifiedskills3 += `<li>${filteredSkills[i].name} ( Points : ${filteredSkills[i].points} )</li>`
-}
 
-qualifiedskills3 += '</ul>';
+
 window.onload = () => {
-        skills3_list.innerHTML += qualifiedskills3;
         skills3_points.textContent = points;
     }
     // skills3_list.innerHTML += qualified; // .map
