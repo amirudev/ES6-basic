@@ -101,7 +101,24 @@ class Siswa {
     attend() {
         console.log(`Hello, ${this.name} !. You're on ${this.classes} class. Your ID is ${this.id}`)
     }
+
+    join() {
+        console.log(`${this.name} joined class`);
+    }
 }
 
-let wahyuamirulloh = new Siswa('Wahyu Amirulloh', '9B', '89728370');
+class ExtraClass extends Siswa {
+    constructor(name, className) {
+        super(name);
+        this.className = className;
+    }
+
+    join() {
+        console.log(`${this.name} has joined ${this.className}`);
+    }
+}
+
+let wahyuamirulloh = new Siswa('Wahyu Amirulloh', '9B', '000001');
 wahyuamirulloh.attend();
+let Extra000001 = new ExtraClass('Wahyu Amirulloh', 'Sains Club'); // Format : Extra(id)
+Extra000001.join();
