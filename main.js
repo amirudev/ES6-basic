@@ -62,7 +62,8 @@ skillData = [{
 // var qualified = ''; // Activate if you using .map
 
 skill3_slider.addEventListener('mousemove', () => {
-    var qualifiedskills3 = ' ';
+    skills3_list.innerHTML = '';
+
     var points = skill3_slider.value;
     s3_number.innerHTML = points;
     console.log(points);
@@ -74,7 +75,7 @@ skill3_slider.addEventListener('mousemove', () => {
         }
     });
     console.log(filteredSkills); // .filter
-    var qualifiedskills3 = '<ul>';
+    qualifiedskills3 = '<ul>';
 
     for (let i = 0; i < filteredSkills.length; i++) {
         qualifiedskills3 += `<li>${filteredSkills[i].name} ( Points : ${filteredSkills[i].points} )</li>`
